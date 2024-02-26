@@ -4,10 +4,7 @@ use starknet::ContractAddress;
 // define the interface
 #[starknet::interface]
 trait ICreation<TContractState> {
-    fn startGame(self: @TContractState, idK: u32, seedID:u32, playerID:ContractAddress, avatarID:u32);
-    fn continueGame(self: @TContractState, gameID:u32, seedID:u32, chooseP: felt252, imageP:felt252);
-    fn startFromPointGame(self: @TContractState, gameID:u32, step:u64);
-    fn playGame(self: @TContractState, ID:u32, threadID:u64, decisionAP:felt252, decisionBP:felt252, imageAP: felt252, imageBP:felt252, seedID:u64, avatarID:u64, counterP:u64, consequenceAP: felt252, consequenceBP: felt252);
+    fn playGame(self: @TContractState, ID:u32, threadID:u64, decisionAP:felt252, decisionBP:felt252, imageAP: felt252, imageBP:felt252, seedID:u64, avatarID:u64,consequenceAP: felt252, consequenceBP: felt252);
 }
 
 // dojo decorator
@@ -22,21 +19,7 @@ mod creation {
 
     #[external(v0)]
     impl CreationImpl of ICreation<ContractState> {
-        // ContractState is defined by system decorator expansion
-        fn startGame(self: @ContractState, idK: u32, seedID:u32, playerID:ContractAddress, avatarID:u32) {
-                       
-        }
-
-        fn continueGame(self: @ContractState, gameID:u32, seedID:u32, chooseP: felt252, imageP:felt252) {
-            
-        }
-
-        fn startFromPointGame(self: @ContractState, gameID:u32, step:u64)
-        {
-
-        }
-
-        fn playGame(self: @ContractState, ID:u32, threadID:u64, decisionAP:felt252, decisionBP:felt252, imageAP: felt252, imageBP:felt252, seedID:u64, avatarID:u64, counterP:u64, consequenceAP: felt252, consequenceBP: felt252)
+        fn playGame(self: @ContractState, ID:u32, threadID:u64, decisionAP:felt252, decisionBP:felt252, imageAP: felt252, imageBP:felt252, seedID:u64, avatarID:u64, consequenceAP: felt252, consequenceBP: felt252)
         {
             let world = self.world_dispatcher.read(); 
             // Get the address of the current caller, possibly the player's address.
@@ -51,7 +34,6 @@ mod creation {
                 imageB: imageBP,
                 seedId: seedID,
                 avatarId: avatarID,
-                counter: counterP,
                 consequenceA: consequenceAP,
                 consequenceB: consequenceBP
             };
