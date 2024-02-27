@@ -3,7 +3,7 @@ use tale_weaver::models::seed:: {Seed, WorldModeID, WorldThemeID, Avatars};
 // define the interface
 #[starknet::interface]
 trait IConstruct<TContractState> {
-    fn createSeed(self: @TContractState, assistantID:felt252, titleAP:felt252,titleBP:felt252, descriptionAP:felt252, descriptionBP:felt252, imageAP:felt252,imageBP:felt252, introAP:felt252, introBP:felt252, assistentIDA:felt252, assistentIDB:felt252, themeID:felt252, modeID:felt252);
+    fn createSeed(self: @TContractState, assistantID:felt252, titleAP:felt252,titleBP:felt252, descriptionAP:felt252, descriptionBP:felt252, imageAP:felt252,imageBP:felt252, themeID:felt252, modeID:felt252);
 }
 
 // dojo decorator
@@ -16,7 +16,7 @@ mod construct {
 
     #[external(v0)]
     impl ConstructImpl of IConstruct<ContractState> {
-        fn createSeed(self: @ContractState, assistantID:felt252, titleAP:felt252,titleBP:felt252, descriptionAP:felt252, descriptionBP:felt252, imageAP:felt252,imageBP:felt252, introAP:felt252, introBP:felt252, assistentIDA:felt252, assistentIDB:felt252, themeID:felt252, modeID:felt252){
+        fn createSeed(self: @ContractState, assistantID:felt252, titleAP:felt252,titleBP:felt252, descriptionAP:felt252, descriptionBP:felt252, imageAP:felt252,imageBP:felt252, themeID:felt252, modeID:felt252){
             
             let world = self.world_dispatcher.read(); 
             

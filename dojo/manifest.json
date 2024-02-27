@@ -1312,7 +1312,7 @@
     {
       "name": "tale_weaver::systems::construct::construct",
       "address": "0x7b006dd25834a41dcd0856279308ca6a6cb504f2e79f45f46a15db5142a0901",
-      "class_hash": "0x1b53549190800fee0fc2645986cc95e09bb0991f004c109deaa39a724f7975",
+      "class_hash": "0x72017666f95d0a214313f9a9daee8028158889a59003ebcf18ca4c1d0736f96",
       "abi": [
         {
           "type": "impl",
@@ -1407,22 +1407,6 @@
                 },
                 {
                   "name": "imageBP",
-                  "type": "core::felt252"
-                },
-                {
-                  "name": "introAP",
-                  "type": "core::felt252"
-                },
-                {
-                  "name": "introBP",
-                  "type": "core::felt252"
-                },
-                {
-                  "name": "assistentIDA",
-                  "type": "core::felt252"
-                },
-                {
-                  "name": "assistentIDB",
                   "type": "core::felt252"
                 },
                 {
