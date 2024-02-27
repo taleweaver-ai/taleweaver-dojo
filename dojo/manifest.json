@@ -1,7 +1,7 @@
 {
   "world": {
     "name": "dojo::world::world",
-    "address": "0x7bbe77280e08e6d7822a6c25762e7047dc4062ec383ca659bb7ddeac3ecc77d",
+    "address": null,
     "class_hash": "0x5ac623f0c96059936bd2d0904bdd31799e430fe08a0caff7a5f497260b16497",
     "abi": [
       {
@@ -948,7 +948,7 @@
   "contracts": [
     {
       "name": "tale_weaver::systems::actions::actions",
-      "address": "0x6bb2272ecb95cd3a67e35d91a21f0b98d0f07c96f248ef5c3d27d00b146452a",
+      "address": null,
       "class_hash": "0x34bdae4b4512efbdd2d57298497447b949ce75ee47e1569457a53994d8b1895",
       "abi": [
         {
@@ -1149,7 +1149,7 @@
     },
     {
       "name": "tale_weaver::systems::avatargen::avatargen",
-      "address": "0x42a055d2a515eea2ec08c23c1fad9a9b3d10538d94aa0d81aa10c84c0c8d33e",
+      "address": null,
       "class_hash": "0x6ea20f98571ab348ae2130a87ea22f3be3ea68f69f46f2e939187b7ef141051",
       "abi": [
         {
@@ -1311,8 +1311,8 @@
     },
     {
       "name": "tale_weaver::systems::construct::construct",
-      "address": "0x7b006dd25834a41dcd0856279308ca6a6cb504f2e79f45f46a15db5142a0901",
-      "class_hash": "0x72017666f95d0a214313f9a9daee8028158889a59003ebcf18ca4c1d0736f96",
+      "address": null,
+      "class_hash": "0x675430bcdc82ef41b6f32eb3d7982cd2c3997e725e751140e910952b173405c",
       "abi": [
         {
           "type": "impl",
@@ -1386,35 +1386,11 @@
                   "type": "core::felt252"
                 },
                 {
-                  "name": "titleAP",
+                  "name": "cidAP",
                   "type": "core::felt252"
                 },
                 {
-                  "name": "titleBP",
-                  "type": "core::felt252"
-                },
-                {
-                  "name": "descriptionAP",
-                  "type": "core::felt252"
-                },
-                {
-                  "name": "descriptionBP",
-                  "type": "core::felt252"
-                },
-                {
-                  "name": "imageAP",
-                  "type": "core::felt252"
-                },
-                {
-                  "name": "imageBP",
-                  "type": "core::felt252"
-                },
-                {
-                  "name": "themeID",
-                  "type": "core::felt252"
-                },
-                {
-                  "name": "modeID",
+                  "name": "cidBP",
                   "type": "core::felt252"
                 }
               ],
@@ -1489,8 +1465,8 @@
     },
     {
       "name": "tale_weaver::systems::play::play",
-      "address": "0x575b6cd29ad4c4a44851bcdbf5d17a702440d3621ca366889399379c0638675",
-      "class_hash": "0x2705df33845e805ee0d3837513339fea9e210b542d12f97d85dbd4c074216dd",
+      "address": null,
+      "class_hash": "0x53302a1718e5b4ce4a673e87faeab657943b6564db98bb5934b6afa00aec55c",
       "abi": [
         {
           "type": "impl",
@@ -1548,7 +1524,7 @@
         },
         {
           "type": "impl",
-          "name": "PlyaImpl",
+          "name": "PlayImpl",
           "interface_name": "tale_weaver::systems::play::IPlay"
         },
         {
@@ -1560,7 +1536,7 @@
               "name": "playGame",
               "inputs": [
                 {
-                  "name": "ID",
+                  "name": "assistantID",
                   "type": "core::felt252"
                 },
                 {
@@ -1572,35 +1548,15 @@
                   "type": "core::felt252"
                 },
                 {
-                  "name": "decisionAP",
+                  "name": "runID",
                   "type": "core::felt252"
                 },
                 {
-                  "name": "decisionBP",
+                  "name": "cidAP",
                   "type": "core::felt252"
                 },
                 {
-                  "name": "imageAP",
-                  "type": "core::felt252"
-                },
-                {
-                  "name": "imageBP",
-                  "type": "core::felt252"
-                },
-                {
-                  "name": "seedID",
-                  "type": "core::felt252"
-                },
-                {
-                  "name": "avatarID",
-                  "type": "core::felt252"
-                },
-                {
-                  "name": "consequenceAP",
-                  "type": "core::felt252"
-                },
-                {
-                  "name": "consequenceBP",
+                  "name": "cidBP",
                   "type": "core::felt252"
                 }
               ],
@@ -1922,6 +1878,276 @@
         {
           "type": "event",
           "name": "tale_weaver::models::avatar::avatar::Event",
+          "kind": "enum",
+          "variants": []
+        }
+      ]
+    },
+    {
+      "name": "tale_weaver::models::decision::decision",
+      "members": [
+        {
+          "name": "assistantId",
+          "type": "felt252",
+          "key": true
+        },
+        {
+          "name": "player",
+          "type": "ContractAddress",
+          "key": false
+        },
+        {
+          "name": "counter",
+          "type": "felt252",
+          "key": true
+        },
+        {
+          "name": "threadId",
+          "type": "felt252",
+          "key": true
+        },
+        {
+          "name": "runId",
+          "type": "felt252",
+          "key": false
+        },
+        {
+          "name": "cidA",
+          "type": "felt252",
+          "key": false
+        },
+        {
+          "name": "cidB",
+          "type": "felt252",
+          "key": false
+        }
+      ],
+      "class_hash": "0x615904ba40fbac9b911230e0677dee5725de809a1581aac265c78266aab0d8f",
+      "abi": [
+        {
+          "type": "impl",
+          "name": "DojoModelImpl",
+          "interface_name": "dojo::model::IDojoModel"
+        },
+        {
+          "type": "struct",
+          "name": "core::array::Span::<core::integer::u8>",
+          "members": [
+            {
+              "name": "snapshot",
+              "type": "@core::array::Array::<core::integer::u8>"
+            }
+          ]
+        },
+        {
+          "type": "struct",
+          "name": "core::array::Span::<core::felt252>",
+          "members": [
+            {
+              "name": "snapshot",
+              "type": "@core::array::Array::<core::felt252>"
+            }
+          ]
+        },
+        {
+          "type": "struct",
+          "name": "core::array::Span::<core::array::Span::<core::felt252>>",
+          "members": [
+            {
+              "name": "snapshot",
+              "type": "@core::array::Array::<core::array::Span::<core::felt252>>"
+            }
+          ]
+        },
+        {
+          "type": "struct",
+          "name": "dojo::database::introspect::Struct",
+          "members": [
+            {
+              "name": "name",
+              "type": "core::felt252"
+            },
+            {
+              "name": "attrs",
+              "type": "core::array::Span::<core::felt252>"
+            },
+            {
+              "name": "children",
+              "type": "core::array::Span::<core::array::Span::<core::felt252>>"
+            }
+          ]
+        },
+        {
+          "type": "struct",
+          "name": "core::array::Span::<(core::felt252, core::array::Span::<core::felt252>)>",
+          "members": [
+            {
+              "name": "snapshot",
+              "type": "@core::array::Array::<(core::felt252, core::array::Span::<core::felt252>)>"
+            }
+          ]
+        },
+        {
+          "type": "struct",
+          "name": "dojo::database::introspect::Enum",
+          "members": [
+            {
+              "name": "name",
+              "type": "core::felt252"
+            },
+            {
+              "name": "attrs",
+              "type": "core::array::Span::<core::felt252>"
+            },
+            {
+              "name": "children",
+              "type": "core::array::Span::<(core::felt252, core::array::Span::<core::felt252>)>"
+            }
+          ]
+        },
+        {
+          "type": "enum",
+          "name": "dojo::database::introspect::Ty",
+          "variants": [
+            {
+              "name": "Primitive",
+              "type": "core::felt252"
+            },
+            {
+              "name": "Struct",
+              "type": "dojo::database::introspect::Struct"
+            },
+            {
+              "name": "Enum",
+              "type": "dojo::database::introspect::Enum"
+            },
+            {
+              "name": "Tuple",
+              "type": "core::array::Span::<core::array::Span::<core::felt252>>"
+            }
+          ]
+        },
+        {
+          "type": "interface",
+          "name": "dojo::model::IDojoModel",
+          "items": [
+            {
+              "type": "function",
+              "name": "name",
+              "inputs": [],
+              "outputs": [
+                {
+                  "type": "core::felt252"
+                }
+              ],
+              "state_mutability": "view"
+            },
+            {
+              "type": "function",
+              "name": "unpacked_size",
+              "inputs": [],
+              "outputs": [
+                {
+                  "type": "core::integer::u32"
+                }
+              ],
+              "state_mutability": "view"
+            },
+            {
+              "type": "function",
+              "name": "packed_size",
+              "inputs": [],
+              "outputs": [
+                {
+                  "type": "core::integer::u32"
+                }
+              ],
+              "state_mutability": "view"
+            },
+            {
+              "type": "function",
+              "name": "layout",
+              "inputs": [],
+              "outputs": [
+                {
+                  "type": "core::array::Span::<core::integer::u8>"
+                }
+              ],
+              "state_mutability": "view"
+            },
+            {
+              "type": "function",
+              "name": "schema",
+              "inputs": [],
+              "outputs": [
+                {
+                  "type": "dojo::database::introspect::Ty"
+                }
+              ],
+              "state_mutability": "view"
+            }
+          ]
+        },
+        {
+          "type": "impl",
+          "name": "decisionImpl",
+          "interface_name": "tale_weaver::models::decision::Idecision"
+        },
+        {
+          "type": "struct",
+          "name": "tale_weaver::models::decision::Decision",
+          "members": [
+            {
+              "name": "assistantId",
+              "type": "core::felt252"
+            },
+            {
+              "name": "player",
+              "type": "core::starknet::contract_address::ContractAddress"
+            },
+            {
+              "name": "counter",
+              "type": "core::felt252"
+            },
+            {
+              "name": "threadId",
+              "type": "core::felt252"
+            },
+            {
+              "name": "runId",
+              "type": "core::felt252"
+            },
+            {
+              "name": "cidA",
+              "type": "core::felt252"
+            },
+            {
+              "name": "cidB",
+              "type": "core::felt252"
+            }
+          ]
+        },
+        {
+          "type": "interface",
+          "name": "tale_weaver::models::decision::Idecision",
+          "items": [
+            {
+              "type": "function",
+              "name": "ensure_abi",
+              "inputs": [
+                {
+                  "name": "model",
+                  "type": "tale_weaver::models::decision::Decision"
+                }
+              ],
+              "outputs": [],
+              "state_mutability": "view"
+            }
+          ]
+        },
+        {
+          "type": "event",
+          "name": "tale_weaver::models::decision::decision::Event",
           "kind": "enum",
           "variants": []
         }
@@ -2692,47 +2918,17 @@
           "key": false
         },
         {
-          "name": "titleA",
+          "name": "cidA",
           "type": "felt252",
           "key": false
         },
         {
-          "name": "titleB",
-          "type": "felt252",
-          "key": false
-        },
-        {
-          "name": "descriptionA",
-          "type": "felt252",
-          "key": false
-        },
-        {
-          "name": "descriptionB",
-          "type": "felt252",
-          "key": false
-        },
-        {
-          "name": "imageA",
-          "type": "felt252",
-          "key": false
-        },
-        {
-          "name": "imageB",
-          "type": "felt252",
-          "key": false
-        },
-        {
-          "name": "worldThemeId",
-          "type": "felt252",
-          "key": false
-        },
-        {
-          "name": "worldModeId",
+          "name": "cidB",
           "type": "felt252",
           "key": false
         }
       ],
-      "class_hash": "0x44a7583843f2f4f2d6cc65b20c87aeb5aef81b4c75a53f74e4c83497b670dde",
+      "class_hash": "0x188431e4585f605bb009ace94b26620da6ed495d000a8dd70fecf7f2c5bfa3f",
       "abi": [
         {
           "type": "impl",
@@ -2916,35 +3112,11 @@
               "type": "core::starknet::contract_address::ContractAddress"
             },
             {
-              "name": "titleA",
+              "name": "cidA",
               "type": "core::felt252"
             },
             {
-              "name": "titleB",
-              "type": "core::felt252"
-            },
-            {
-              "name": "descriptionA",
-              "type": "core::felt252"
-            },
-            {
-              "name": "descriptionB",
-              "type": "core::felt252"
-            },
-            {
-              "name": "imageA",
-              "type": "core::felt252"
-            },
-            {
-              "name": "imageB",
-              "type": "core::felt252"
-            },
-            {
-              "name": "worldThemeId",
-              "type": "core::felt252"
-            },
-            {
-              "name": "worldModeId",
+              "name": "cidB",
               "type": "core::felt252"
             }
           ]
@@ -2970,303 +3142,6 @@
         {
           "type": "event",
           "name": "tale_weaver::models::seed::seed::Event",
-          "kind": "enum",
-          "variants": []
-        }
-      ]
-    },
-    {
-      "name": "tale_weaver::models::step::step",
-      "members": [
-        {
-          "name": "assistantId",
-          "type": "felt252",
-          "key": true
-        },
-        {
-          "name": "player",
-          "type": "ContractAddress",
-          "key": false
-        },
-        {
-          "name": "counter",
-          "type": "felt252",
-          "key": true
-        },
-        {
-          "name": "threadId",
-          "type": "felt252",
-          "key": true
-        },
-        {
-          "name": "decisionA",
-          "type": "felt252",
-          "key": false
-        },
-        {
-          "name": "decisionB",
-          "type": "felt252",
-          "key": false
-        },
-        {
-          "name": "imageA",
-          "type": "felt252",
-          "key": false
-        },
-        {
-          "name": "imageB",
-          "type": "felt252",
-          "key": false
-        },
-        {
-          "name": "consequenceA",
-          "type": "felt252",
-          "key": false
-        },
-        {
-          "name": "consequenceB",
-          "type": "felt252",
-          "key": false
-        }
-      ],
-      "class_hash": "0x463ecccb68433ee1cddba517b5d0c57a6b1428c4558b4af20fced694b08de9d",
-      "abi": [
-        {
-          "type": "impl",
-          "name": "DojoModelImpl",
-          "interface_name": "dojo::model::IDojoModel"
-        },
-        {
-          "type": "struct",
-          "name": "core::array::Span::<core::integer::u8>",
-          "members": [
-            {
-              "name": "snapshot",
-              "type": "@core::array::Array::<core::integer::u8>"
-            }
-          ]
-        },
-        {
-          "type": "struct",
-          "name": "core::array::Span::<core::felt252>",
-          "members": [
-            {
-              "name": "snapshot",
-              "type": "@core::array::Array::<core::felt252>"
-            }
-          ]
-        },
-        {
-          "type": "struct",
-          "name": "core::array::Span::<core::array::Span::<core::felt252>>",
-          "members": [
-            {
-              "name": "snapshot",
-              "type": "@core::array::Array::<core::array::Span::<core::felt252>>"
-            }
-          ]
-        },
-        {
-          "type": "struct",
-          "name": "dojo::database::introspect::Struct",
-          "members": [
-            {
-              "name": "name",
-              "type": "core::felt252"
-            },
-            {
-              "name": "attrs",
-              "type": "core::array::Span::<core::felt252>"
-            },
-            {
-              "name": "children",
-              "type": "core::array::Span::<core::array::Span::<core::felt252>>"
-            }
-          ]
-        },
-        {
-          "type": "struct",
-          "name": "core::array::Span::<(core::felt252, core::array::Span::<core::felt252>)>",
-          "members": [
-            {
-              "name": "snapshot",
-              "type": "@core::array::Array::<(core::felt252, core::array::Span::<core::felt252>)>"
-            }
-          ]
-        },
-        {
-          "type": "struct",
-          "name": "dojo::database::introspect::Enum",
-          "members": [
-            {
-              "name": "name",
-              "type": "core::felt252"
-            },
-            {
-              "name": "attrs",
-              "type": "core::array::Span::<core::felt252>"
-            },
-            {
-              "name": "children",
-              "type": "core::array::Span::<(core::felt252, core::array::Span::<core::felt252>)>"
-            }
-          ]
-        },
-        {
-          "type": "enum",
-          "name": "dojo::database::introspect::Ty",
-          "variants": [
-            {
-              "name": "Primitive",
-              "type": "core::felt252"
-            },
-            {
-              "name": "Struct",
-              "type": "dojo::database::introspect::Struct"
-            },
-            {
-              "name": "Enum",
-              "type": "dojo::database::introspect::Enum"
-            },
-            {
-              "name": "Tuple",
-              "type": "core::array::Span::<core::array::Span::<core::felt252>>"
-            }
-          ]
-        },
-        {
-          "type": "interface",
-          "name": "dojo::model::IDojoModel",
-          "items": [
-            {
-              "type": "function",
-              "name": "name",
-              "inputs": [],
-              "outputs": [
-                {
-                  "type": "core::felt252"
-                }
-              ],
-              "state_mutability": "view"
-            },
-            {
-              "type": "function",
-              "name": "unpacked_size",
-              "inputs": [],
-              "outputs": [
-                {
-                  "type": "core::integer::u32"
-                }
-              ],
-              "state_mutability": "view"
-            },
-            {
-              "type": "function",
-              "name": "packed_size",
-              "inputs": [],
-              "outputs": [
-                {
-                  "type": "core::integer::u32"
-                }
-              ],
-              "state_mutability": "view"
-            },
-            {
-              "type": "function",
-              "name": "layout",
-              "inputs": [],
-              "outputs": [
-                {
-                  "type": "core::array::Span::<core::integer::u8>"
-                }
-              ],
-              "state_mutability": "view"
-            },
-            {
-              "type": "function",
-              "name": "schema",
-              "inputs": [],
-              "outputs": [
-                {
-                  "type": "dojo::database::introspect::Ty"
-                }
-              ],
-              "state_mutability": "view"
-            }
-          ]
-        },
-        {
-          "type": "impl",
-          "name": "stepImpl",
-          "interface_name": "tale_weaver::models::step::Istep"
-        },
-        {
-          "type": "struct",
-          "name": "tale_weaver::models::step::Step",
-          "members": [
-            {
-              "name": "assistantId",
-              "type": "core::felt252"
-            },
-            {
-              "name": "player",
-              "type": "core::starknet::contract_address::ContractAddress"
-            },
-            {
-              "name": "counter",
-              "type": "core::felt252"
-            },
-            {
-              "name": "threadId",
-              "type": "core::felt252"
-            },
-            {
-              "name": "decisionA",
-              "type": "core::felt252"
-            },
-            {
-              "name": "decisionB",
-              "type": "core::felt252"
-            },
-            {
-              "name": "imageA",
-              "type": "core::felt252"
-            },
-            {
-              "name": "imageB",
-              "type": "core::felt252"
-            },
-            {
-              "name": "consequenceA",
-              "type": "core::felt252"
-            },
-            {
-              "name": "consequenceB",
-              "type": "core::felt252"
-            }
-          ]
-        },
-        {
-          "type": "interface",
-          "name": "tale_weaver::models::step::Istep",
-          "items": [
-            {
-              "type": "function",
-              "name": "ensure_abi",
-              "inputs": [
-                {
-                  "name": "model",
-                  "type": "tale_weaver::models::step::Step"
-                }
-              ],
-              "outputs": [],
-              "state_mutability": "view"
-            }
-          ]
-        },
-        {
-          "type": "event",
-          "name": "tale_weaver::models::step::step::Event",
           "kind": "enum",
           "variants": []
         }

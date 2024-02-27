@@ -1,43 +1,37 @@
-use tale_weaver::models::game::{Game};
-use tale_weaver::models::step::{Step};
+use tale_weaver::models::decision::{Decision};
 use starknet::ContractAddress;
 // define the interface
 #[starknet::interface]
 trait IPlay<TContractState> {
-    fn playGame(self: @TContractState, ID:felt252, counterP:felt252, threadID:felt252, decisionAP:felt252, decisionBP:felt252, imageAP: felt252, imageBP:felt252, seedID:felt252, avatarID:felt252, consequenceAP: felt252, consequenceBP: felt252);
+    fn playGame(self: @TContractState, assistantID:felt252, counterP:felt252, threadID:felt252, runID:felt252, cidAP:felt252,cidBP:felt252);
 }
 
 // dojo decorator
 #[dojo::contract]
 mod play {    
     use starknet::{ContractAddress, get_caller_address};
-    use tale_weaver::models::{step::{Step}, game::{Game}};
-
-    use tale_weaver::models::{avatar::{Avatar}};
+    use tale_weaver::models::{decision::{Decision}};
 
     use super::IPlay;
 
     #[external(v0)]
-    impl PlyaImpl of IPlay<ContractState> {
-        fn playGame(self: @ContractState, ID:felt252, counterP:felt252, threadID:felt252, decisionAP:felt252, decisionBP:felt252, imageAP: felt252, imageBP:felt252, seedID:felt252, avatarID:felt252, consequenceAP: felt252, consequenceBP: felt252)
+    impl PlayImpl of IPlay<ContractState> {
+        fn playGame(self: @ContractState, assistantID:felt252, counterP:felt252, threadID:felt252, runID:felt252, cidAP:felt252,cidBP:felt252)
         {
             let world = self.world_dispatcher.read(); 
             // Get the address of the current caller, possibly the player's address.
             let playerD = get_caller_address();
             //let mut key = world.uuid();
-            let mut stepTmp = Step {
-                assistantId: ID,
+            let mut decisionTmp = Decision{
+                assistantId: assistantID,
                 player: playerD,
                 counter: counterP,
                 threadId: threadID,
-                decisionA: decisionAP,
-                decisionB: decisionBP,
-                imageA: imageAP,
-                imageB: imageBP,
-                consequenceA: consequenceAP,
-                consequenceB: consequenceBP
+                runId: runID,
+                cidA: cidAP,
+                cidB: cidBP
             };
-            set!(world, (stepTmp));
+            set!(world, (decisionTmp));
         }
     }
  

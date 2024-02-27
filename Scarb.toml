@@ -22,8 +22,13 @@ private_key = "0x1800000000300000180000000000030000000000003006001800006600"
 
 [profile.slot.tool.dojo.env]
 rpc_url = "https://api.cartridge.gg/x/tweaver/katana"
-account_address = "0x42feafb50c38faa47ef76eaecf9e431c7111c7ee99a82db5d721cf5271a03cd"
-private_key = "0x52e3ff52c292d52f9dc280118c8c60352a3680006e7f23d3ea3000bee20f05c"
+account_address = "0x3d8075a4bdf33ae92c4c4aa14e71eaae8d67fe3c7a5d13869f29eecdcc1042f"
+private_key = "0x3778e2b6c6a2fef2b330f559aeebdd3a75c59f0e811e0ae50a24be260f9734d"
+
+[profile.ttweaver.tool.dojo.env]
+rpc_url = "https://api.cartridge.gg/x/ttweaver/katana"
+account_address = "0x6f6045968e19e9336155d8ac7823c649f1c489de2dbc0f4827e436a71d83529"
+private_key = "0xdaef0074334e9b0fd2bad59cf680a2b15b09a38b63a0b13401a67ec2cb2e88"
 
 [tool.dojo.world]
 name = "Dojo starter"

@@ -11,7 +11,7 @@ mod models {
     mod seed;
     mod avatar;
     mod game;
-    mod step;
+    mod decision;
 }
 
 mod tests {

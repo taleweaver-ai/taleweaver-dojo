@@ -19,6 +19,19 @@ export function defineContractComponents(world: World) {
         }
       );
     })(),
+    Decision: (() => {
+      return defineComponent(
+        world,
+        { assistantId: RecsType.BigInt, player: RecsType.BigInt, counter: RecsType.BigInt, threadId: RecsType.BigInt, runId: RecsType.BigInt, cidA: RecsType.BigInt, cidB: RecsType.BigInt },
+        {
+          metadata: {
+            name: "Decision",
+            types: ["felt252","contractaddress","felt252","felt252","felt252","felt252","felt252"],
+            customTypes: [],
+          },
+        }
+      );
+    })(),
     Game: (() => {
       return defineComponent(
         world,
@@ -61,24 +74,11 @@ export function defineContractComponents(world: World) {
     Seed: (() => {
       return defineComponent(
         world,
-        { assistantId: RecsType.BigInt, creator: RecsType.BigInt, titleA: RecsType.BigInt, titleB: RecsType.BigInt, descriptionA: RecsType.BigInt, descriptionB: RecsType.BigInt, imageA: RecsType.BigInt, imageB: RecsType.BigInt, worldThemeId: RecsType.BigInt, worldModeId: RecsType.BigInt },
+        { assistantId: RecsType.BigInt, creator: RecsType.BigInt, cidA: RecsType.BigInt, cidB: RecsType.BigInt },
         {
           metadata: {
             name: "Seed",
-            types: ["felt252","contractaddress","felt252","felt252","felt252","felt252","felt252","felt252","felt252","felt252"],
-            customTypes: [],
-          },
-        }
-      );
-    })(),
-    Step: (() => {
-      return defineComponent(
-        world,
-        { assistantId: RecsType.BigInt, player: RecsType.BigInt, counter: RecsType.BigInt, threadId: RecsType.BigInt, decisionA: RecsType.BigInt, decisionB: RecsType.BigInt, imageA: RecsType.BigInt, imageB: RecsType.BigInt, consequenceA: RecsType.BigInt, consequenceB: RecsType.BigInt },
-        {
-          metadata: {
-            name: "Step",
-            types: ["felt252","contractaddress","felt252","felt252","felt252","felt252","felt252","felt252","felt252","felt252"],
+            types: ["felt252","contractaddress","felt252","felt252"],
             customTypes: [],
           },
         }
