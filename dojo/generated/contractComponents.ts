@@ -9,11 +9,11 @@ export function defineContractComponents(world: World) {
     Avatar: (() => {
       return defineComponent(
         world,
-        { id: RecsType.Number, creator: RecsType.BigInt, name: RecsType.BigInt, alias: RecsType.BigInt, descriptionA: RecsType.BigInt, descriptionB: RecsType.BigInt, seedId: RecsType.Number },
+        { assistantId: RecsType.BigInt, name: RecsType.BigInt, alias: RecsType.BigInt, descriptionA: RecsType.BigInt, descriptionB: RecsType.BigInt },
         {
           metadata: {
             name: "Avatar",
-            types: ["u32","contractaddress","felt252","felt252","felt252","felt252","u32"],
+            types: ["felt252","felt252","felt252","felt252","felt252"],
             customTypes: [],
           },
         }
@@ -61,12 +61,12 @@ export function defineContractComponents(world: World) {
     Seed: (() => {
       return defineComponent(
         world,
-        { id: RecsType.Number, creator: RecsType.BigInt, title: RecsType.BigInt, userPromptA: RecsType.BigInt, userPromptB: RecsType.BigInt, imageA: RecsType.BigInt, imageB: RecsType.BigInt, introA: RecsType.BigInt, introB: RecsType.BigInt, assistentId: RecsType.BigInt, worldThemeId: RecsType.Number, worldModeId: RecsType.Number },
+        { assistantId: RecsType.BigInt, creator: RecsType.BigInt, titleA: RecsType.BigInt, titleB: RecsType.BigInt, descriptionA: RecsType.BigInt, descriptionB: RecsType.BigInt, imageA: RecsType.BigInt, imageB: RecsType.BigInt, worldThemeId: RecsType.BigInt, worldModeId: RecsType.BigInt },
         {
           metadata: {
             name: "Seed",
-            types: ["u32","contractaddress","felt252","felt252","felt252","felt252","felt252","felt252","felt252","felt252","enum","enum"],
-            customTypes: ["WorldThemeID","WorldModeID"],
+            types: ["felt252","contractaddress","felt252","felt252","felt252","felt252","felt252","felt252","felt252","felt252"],
+            customTypes: [],
           },
         }
       );
@@ -74,11 +74,11 @@ export function defineContractComponents(world: World) {
     Step: (() => {
       return defineComponent(
         world,
-        { id: RecsType.Number, threadId: RecsType.Number, decisionA: RecsType.BigInt, decisionB: RecsType.BigInt, imageA: RecsType.BigInt, imageB: RecsType.BigInt, seedId: RecsType.Number, avatarId: RecsType.Number, counter: RecsType.Number, consequenceA: RecsType.BigInt, consequenceB: RecsType.BigInt },
+        { assistantId: RecsType.BigInt, player: RecsType.BigInt, counter: RecsType.BigInt, threadId: RecsType.BigInt, decisionA: RecsType.BigInt, decisionB: RecsType.BigInt, imageA: RecsType.BigInt, imageB: RecsType.BigInt, consequenceA: RecsType.BigInt, consequenceB: RecsType.BigInt },
         {
           metadata: {
             name: "Step",
-            types: ["u32","u64","felt252","felt252","felt252","felt252","u64","u64","u64","felt252","felt252"],
+            types: ["felt252","contractaddress","felt252","felt252","felt252","felt252","felt252","felt252","felt252","felt252"],
             customTypes: [],
           },
         }

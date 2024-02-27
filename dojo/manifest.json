@@ -1148,9 +1148,9 @@
       "computed": []
     },
     {
-      "name": "tale_weaver::systems::avatargen::creation",
-      "address": "0xe2f0a620c406186041912ab574b6d09199ba9e9aa8788801739cf8100c9aa3",
-      "class_hash": "0x1948c2486f84e63e73bc9fe030795133dfda7d39580bf59865f73e90b2b7f83",
+      "name": "tale_weaver::systems::avatargen::avatargen",
+      "address": "0x42a055d2a515eea2ec08c23c1fad9a9b3d10538d94aa0d81aa10c84c0c8d33e",
+      "class_hash": "0x6ea20f98571ab348ae2130a87ea22f3be3ea68f69f46f2e939187b7ef141051",
       "abi": [
         {
           "type": "impl",
@@ -1209,16 +1209,20 @@
         {
           "type": "impl",
           "name": "CreationImpl",
-          "interface_name": "tale_weaver::systems::avatargen::ICreation"
+          "interface_name": "tale_weaver::systems::avatargen::IAvatarGen"
         },
         {
           "type": "interface",
-          "name": "tale_weaver::systems::avatargen::ICreation",
+          "name": "tale_weaver::systems::avatargen::IAvatarGen",
           "items": [
             {
               "type": "function",
               "name": "createAvatar",
               "inputs": [
+                {
+                  "name": "assistantID",
+                  "type": "core::felt252"
+                },
                 {
                   "name": "nameP",
                   "type": "core::felt252"
@@ -1234,10 +1238,6 @@
                 {
                   "name": "descriptionBP",
                   "type": "core::felt252"
-                },
-                {
-                  "name": "seedID",
-                  "type": "core::integer::u32"
                 }
               ],
               "outputs": [],
@@ -1294,7 +1294,7 @@
         },
         {
           "type": "event",
-          "name": "tale_weaver::systems::avatargen::creation::Event",
+          "name": "tale_weaver::systems::avatargen::avatargen::Event",
           "kind": "enum",
           "variants": [
             {
@@ -1310,9 +1310,9 @@
       "computed": []
     },
     {
-      "name": "tale_weaver::systems::construct::creation",
-      "address": "0x199d713b5318b3cfb356009c9aadf8b3e12ad60575b4ef4392c114b62823ac6",
-      "class_hash": "0x4b5e02d9c5e9bc88d44c297ff6ebdcf697f18d4380284496b0138b6b9e0e46e",
+      "name": "tale_weaver::systems::construct::construct",
+      "address": "0x7b006dd25834a41dcd0856279308ca6a6cb504f2e79f45f46a15db5142a0901",
+      "class_hash": "0x1b53549190800fee0fc2645986cc95e09bb0991f004c109deaa39a724f7975",
       "abi": [
         {
           "type": "impl",
@@ -1370,83 +1370,35 @@
         },
         {
           "type": "impl",
-          "name": "CreationImpl",
-          "interface_name": "tale_weaver::systems::construct::ICreation"
-        },
-        {
-          "type": "enum",
-          "name": "tale_weaver::models::seed::WorldThemeID",
-          "variants": [
-            {
-              "name": "None",
-              "type": "()"
-            },
-            {
-              "name": "Anime",
-              "type": "()"
-            },
-            {
-              "name": "PixelArt",
-              "type": "()"
-            },
-            {
-              "name": "Scifi",
-              "type": "()"
-            },
-            {
-              "name": "Fantasy",
-              "type": "()"
-            },
-            {
-              "name": "Cartoon",
-              "type": "()"
-            },
-            {
-              "name": "Realistic",
-              "type": "()"
-            },
-            {
-              "name": "Kids",
-              "type": "()"
-            }
-          ]
-        },
-        {
-          "type": "enum",
-          "name": "tale_weaver::models::seed::WorldModeID",
-          "variants": [
-            {
-              "name": "None",
-              "type": "()"
-            },
-            {
-              "name": "Explorer",
-              "type": "()"
-            },
-            {
-              "name": "Survival",
-              "type": "()"
-            }
-          ]
+          "name": "ConstructImpl",
+          "interface_name": "tale_weaver::systems::construct::IConstruct"
         },
         {
           "type": "interface",
-          "name": "tale_weaver::systems::construct::ICreation",
+          "name": "tale_weaver::systems::construct::IConstruct",
           "items": [
             {
               "type": "function",
               "name": "createSeed",
               "inputs": [
                 {
-                  "name": "titleP",
+                  "name": "assistantID",
                   "type": "core::felt252"
                 },
                 {
-                  "name": "userPromptAP",
+                  "name": "titleAP",
                   "type": "core::felt252"
                 },
                 {
-                  "name": "userPromptBP",
+                  "name": "titleBP",
+                  "type": "core::felt252"
+                },
+                {
+                  "name": "descriptionAP",
+                  "type": "core::felt252"
+                },
+                {
+                  "name": "descriptionBP",
                   "type": "core::felt252"
                 },
                 {
@@ -1466,16 +1418,20 @@
                   "type": "core::felt252"
                 },
                 {
-                  "name": "assistentID",
+                  "name": "assistentIDA",
+                  "type": "core::felt252"
+                },
+                {
+                  "name": "assistentIDB",
                   "type": "core::felt252"
                 },
                 {
                   "name": "themeID",
-                  "type": "tale_weaver::models::seed::WorldThemeID"
+                  "type": "core::felt252"
                 },
                 {
                   "name": "modeID",
-                  "type": "tale_weaver::models::seed::WorldModeID"
+                  "type": "core::felt252"
                 }
               ],
               "outputs": [],
@@ -1532,7 +1488,7 @@
         },
         {
           "type": "event",
-          "name": "tale_weaver::systems::construct::creation::Event",
+          "name": "tale_weaver::systems::construct::construct::Event",
           "kind": "enum",
           "variants": [
             {
@@ -1548,9 +1504,9 @@
       "computed": []
     },
     {
-      "name": "tale_weaver::systems::play::creation",
-      "address": "0x658a3ff4ce15ffb7eaaaaa071cc66556e696e48d59f055ddd48bf66004c0ebe",
-      "class_hash": "0x561292cc7c6905c617d6cea3fadb55970e95831c8a6a7c0ce959d75b587ee95",
+      "name": "tale_weaver::systems::play::play",
+      "address": "0x575b6cd29ad4c4a44851bcdbf5d17a702440d3621ca366889399379c0638675",
+      "class_hash": "0x2705df33845e805ee0d3837513339fea9e210b542d12f97d85dbd4c074216dd",
       "abi": [
         {
           "type": "impl",
@@ -1608,88 +1564,28 @@
         },
         {
           "type": "impl",
-          "name": "CreationImpl",
-          "interface_name": "tale_weaver::systems::play::ICreation"
+          "name": "PlyaImpl",
+          "interface_name": "tale_weaver::systems::play::IPlay"
         },
         {
           "type": "interface",
-          "name": "tale_weaver::systems::play::ICreation",
+          "name": "tale_weaver::systems::play::IPlay",
           "items": [
-            {
-              "type": "function",
-              "name": "startGame",
-              "inputs": [
-                {
-                  "name": "idK",
-                  "type": "core::integer::u32"
-                },
-                {
-                  "name": "seedID",
-                  "type": "core::integer::u32"
-                },
-                {
-                  "name": "playerID",
-                  "type": "core::starknet::contract_address::ContractAddress"
-                },
-                {
-                  "name": "avatarID",
-                  "type": "core::integer::u32"
-                }
-              ],
-              "outputs": [],
-              "state_mutability": "view"
-            },
-            {
-              "type": "function",
-              "name": "continueGame",
-              "inputs": [
-                {
-                  "name": "gameID",
-                  "type": "core::integer::u32"
-                },
-                {
-                  "name": "seedID",
-                  "type": "core::integer::u32"
-                },
-                {
-                  "name": "chooseP",
-                  "type": "core::felt252"
-                },
-                {
-                  "name": "imageP",
-                  "type": "core::felt252"
-                }
-              ],
-              "outputs": [],
-              "state_mutability": "view"
-            },
-            {
-              "type": "function",
-              "name": "startFromPointGame",
-              "inputs": [
-                {
-                  "name": "gameID",
-                  "type": "core::integer::u32"
-                },
-                {
-                  "name": "step",
-                  "type": "core::integer::u64"
-                }
-              ],
-              "outputs": [],
-              "state_mutability": "view"
-            },
             {
               "type": "function",
               "name": "playGame",
               "inputs": [
                 {
                   "name": "ID",
-                  "type": "core::integer::u32"
+                  "type": "core::felt252"
+                },
+                {
+                  "name": "counterP",
+                  "type": "core::felt252"
                 },
                 {
                   "name": "threadID",
-                  "type": "core::integer::u64"
+                  "type": "core::felt252"
                 },
                 {
                   "name": "decisionAP",
@@ -1709,15 +1605,11 @@
                 },
                 {
                   "name": "seedID",
-                  "type": "core::integer::u64"
+                  "type": "core::felt252"
                 },
                 {
                   "name": "avatarID",
-                  "type": "core::integer::u64"
-                },
-                {
-                  "name": "counterP",
-                  "type": "core::integer::u64"
+                  "type": "core::felt252"
                 },
                 {
                   "name": "consequenceAP",
@@ -1782,7 +1674,7 @@
         },
         {
           "type": "event",
-          "name": "tale_weaver::systems::play::creation::Event",
+          "name": "tale_weaver::systems::play::play::Event",
           "kind": "enum",
           "variants": [
             {
@@ -1803,19 +1695,14 @@
       "name": "tale_weaver::models::avatar::avatar",
       "members": [
         {
-          "name": "id",
-          "type": "u32",
-          "key": true
-        },
-        {
-          "name": "creator",
-          "type": "ContractAddress",
+          "name": "assistantId",
+          "type": "felt252",
           "key": true
         },
         {
           "name": "name",
           "type": "felt252",
-          "key": false
+          "key": true
         },
         {
           "name": "alias",
@@ -1831,14 +1718,9 @@
           "name": "descriptionB",
           "type": "felt252",
           "key": false
-        },
-        {
-          "name": "seedId",
-          "type": "u32",
-          "key": false
         }
       ],
-      "class_hash": "0x2382fca140a38199e5d646a5757a6ea0d1ab7679be74926f5d511779deb037c",
+      "class_hash": "0x43f86f8786ebc4e14d3d542fc9932143acfa8d451af7e7aeaf6b1f95b070822",
       "abi": [
         {
           "type": "impl",
@@ -2014,12 +1896,8 @@
           "name": "tale_weaver::models::avatar::Avatar",
           "members": [
             {
-              "name": "id",
-              "type": "core::integer::u32"
-            },
-            {
-              "name": "creator",
-              "type": "core::starknet::contract_address::ContractAddress"
+              "name": "assistantId",
+              "type": "core::felt252"
             },
             {
               "name": "name",
@@ -2036,10 +1914,6 @@
             {
               "name": "descriptionB",
               "type": "core::felt252"
-            },
-            {
-              "name": "seedId",
-              "type": "core::integer::u32"
             }
           ]
         },
@@ -2824,8 +2698,8 @@
       "name": "tale_weaver::models::seed::seed",
       "members": [
         {
-          "name": "id",
-          "type": "u32",
+          "name": "assistantId",
+          "type": "felt252",
           "key": true
         },
         {
@@ -2834,17 +2708,22 @@
           "key": false
         },
         {
-          "name": "title",
+          "name": "titleA",
           "type": "felt252",
           "key": false
         },
         {
-          "name": "userPromptA",
+          "name": "titleB",
           "type": "felt252",
           "key": false
         },
         {
-          "name": "userPromptB",
+          "name": "descriptionA",
+          "type": "felt252",
+          "key": false
+        },
+        {
+          "name": "descriptionB",
           "type": "felt252",
           "key": false
         },
@@ -2859,32 +2738,17 @@
           "key": false
         },
         {
-          "name": "introA",
-          "type": "felt252",
-          "key": false
-        },
-        {
-          "name": "introB",
-          "type": "felt252",
-          "key": false
-        },
-        {
-          "name": "assistentId",
-          "type": "felt252",
-          "key": false
-        },
-        {
           "name": "worldThemeId",
-          "type": "WorldThemeID",
+          "type": "felt252",
           "key": false
         },
         {
           "name": "worldModeId",
-          "type": "WorldModeID",
+          "type": "felt252",
           "key": false
         }
       ],
-      "class_hash": "0x1c9189c022491b9710625a05f571b35f8f7fa1101e330cc5cbb214c6471985",
+      "class_hash": "0x44a7583843f2f4f2d6cc65b20c87aeb5aef81b4c75a53f74e4c83497b670dde",
       "abi": [
         {
           "type": "impl",
@@ -3056,83 +2920,31 @@
           "interface_name": "tale_weaver::models::seed::Iseed"
         },
         {
-          "type": "enum",
-          "name": "tale_weaver::models::seed::WorldThemeID",
-          "variants": [
-            {
-              "name": "None",
-              "type": "()"
-            },
-            {
-              "name": "Anime",
-              "type": "()"
-            },
-            {
-              "name": "PixelArt",
-              "type": "()"
-            },
-            {
-              "name": "Scifi",
-              "type": "()"
-            },
-            {
-              "name": "Fantasy",
-              "type": "()"
-            },
-            {
-              "name": "Cartoon",
-              "type": "()"
-            },
-            {
-              "name": "Realistic",
-              "type": "()"
-            },
-            {
-              "name": "Kids",
-              "type": "()"
-            }
-          ]
-        },
-        {
-          "type": "enum",
-          "name": "tale_weaver::models::seed::WorldModeID",
-          "variants": [
-            {
-              "name": "None",
-              "type": "()"
-            },
-            {
-              "name": "Explorer",
-              "type": "()"
-            },
-            {
-              "name": "Survival",
-              "type": "()"
-            }
-          ]
-        },
-        {
           "type": "struct",
           "name": "tale_weaver::models::seed::Seed",
           "members": [
             {
-              "name": "id",
-              "type": "core::integer::u32"
+              "name": "assistantId",
+              "type": "core::felt252"
             },
             {
               "name": "creator",
               "type": "core::starknet::contract_address::ContractAddress"
             },
             {
-              "name": "title",
+              "name": "titleA",
               "type": "core::felt252"
             },
             {
-              "name": "userPromptA",
+              "name": "titleB",
               "type": "core::felt252"
             },
             {
-              "name": "userPromptB",
+              "name": "descriptionA",
+              "type": "core::felt252"
+            },
+            {
+              "name": "descriptionB",
               "type": "core::felt252"
             },
             {
@@ -3144,24 +2956,12 @@
               "type": "core::felt252"
             },
             {
-              "name": "introA",
-              "type": "core::felt252"
-            },
-            {
-              "name": "introB",
-              "type": "core::felt252"
-            },
-            {
-              "name": "assistentId",
-              "type": "core::felt252"
-            },
-            {
               "name": "worldThemeId",
-              "type": "tale_weaver::models::seed::WorldThemeID"
+              "type": "core::felt252"
             },
             {
               "name": "worldModeId",
-              "type": "tale_weaver::models::seed::WorldModeID"
+              "type": "core::felt252"
             }
           ]
         },
@@ -3195,13 +2995,23 @@
       "name": "tale_weaver::models::step::step",
       "members": [
         {
-          "name": "id",
-          "type": "u32",
+          "name": "assistantId",
+          "type": "felt252",
+          "key": true
+        },
+        {
+          "name": "player",
+          "type": "ContractAddress",
+          "key": false
+        },
+        {
+          "name": "counter",
+          "type": "felt252",
           "key": true
         },
         {
           "name": "threadId",
-          "type": "u64",
+          "type": "felt252",
           "key": true
         },
         {
@@ -3225,21 +3035,6 @@
           "key": false
         },
         {
-          "name": "seedId",
-          "type": "u64",
-          "key": false
-        },
-        {
-          "name": "avatarId",
-          "type": "u64",
-          "key": false
-        },
-        {
-          "name": "counter",
-          "type": "u64",
-          "key": false
-        },
-        {
           "name": "consequenceA",
           "type": "felt252",
           "key": false
@@ -3250,7 +3045,7 @@
           "key": false
         }
       ],
-      "class_hash": "0xbe70b881e20eeaf238fe8e3eac41aa25ec4a99d70a1a93e78bd3490c4926cb",
+      "class_hash": "0x463ecccb68433ee1cddba517b5d0c57a6b1428c4558b4af20fced694b08de9d",
       "abi": [
         {
           "type": "impl",
@@ -3426,12 +3221,20 @@
           "name": "tale_weaver::models::step::Step",
           "members": [
             {
-              "name": "id",
-              "type": "core::integer::u32"
+              "name": "assistantId",
+              "type": "core::felt252"
+            },
+            {
+              "name": "player",
+              "type": "core::starknet::contract_address::ContractAddress"
+            },
+            {
+              "name": "counter",
+              "type": "core::felt252"
             },
             {
               "name": "threadId",
-              "type": "core::integer::u64"
+              "type": "core::felt252"
             },
             {
               "name": "decisionA",
@@ -3448,18 +3251,6 @@
             {
               "name": "imageB",
               "type": "core::felt252"
-            },
-            {
-              "name": "seedId",
-              "type": "core::integer::u64"
-            },
-            {
-              "name": "avatarId",
-              "type": "core::integer::u64"
-            },
-            {
-              "name": "counter",
-              "type": "core::integer::u64"
             },
             {
               "name": "consequenceA",
