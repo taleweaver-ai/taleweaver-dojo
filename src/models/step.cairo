@@ -1,13 +1,15 @@
+use starknet::ContractAddress;
+
 #[derive(Model, Copy, Drop, Serde)]
 struct Step{  
-#[key] id: u32,
-threadId: u64,
+#[key]assistantId: felt252,
+player: ContractAddress,
+#[key]counter: felt252,
+#[key]threadId: felt252,
 decisionA: felt252,
 decisionB: felt252,
 imageA: felt252,
 imageB: felt252,
-#[key]seedId:u64,
-avatarId: u64,
 consequenceA : felt252,
 consequenceB : felt252
 }

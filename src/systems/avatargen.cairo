@@ -1,37 +1,40 @@
 use tale_weaver::models::avatar:: {Avatar};
 // define the interface
 #[starknet::interface]
-trait ICreation<TContractState> {
-    fn createAvatar(self: @TContractState, nameP:felt252, aliasP:felt252, descriptionAP:felt252, descriptionBP:felt252, seedID:u32);
+trait IAvatarGen<TContractState> {
+    fn createAvatar(self: @TContractState, assistantID: felt252, nameP:felt252, aliasP:felt252, descriptionAP:felt252, descriptionBP:felt252);
 }
+
 
 // dojo decorator
 #[dojo::contract]
-mod creation {    
+mod avatargen {    
     use starknet::{ContractAddress, get_caller_address};
     use tale_weaver::models::{avatar::{Avatar}};
 
-    use super::ICreation; 
+    use super::IAvatarGen; 
+
+    #[derive(Drop, starknet::Event)]
+    struct NewAvatar{
+        avatarId: u32,
+    }
 
     #[external(v0)]
-    impl CreationImpl of ICreation<ContractState> {
+    impl CreationImpl of IAvatarGen<ContractState> {
         // ContractState is defined by system decorator expansion
-        fn createAvatar(self: @ContractState, nameP:felt252, aliasP:felt252, descriptionAP:felt252, descriptionBP:felt252, seedID:u32) {
-            // Access the world dispatcher for reading.
+        fn createAvatar(self: @ContractState, assistantID: felt252, nameP:felt252, aliasP:felt252, descriptionAP:felt252, descriptionBP:felt252){
+            
             let world = self.world_dispatcher.read(); 
-            // Get the address of the current caller, possibly the player's address.
-            let player = get_caller_address();
-            let mut key = world.uuid();
+            
             let mut avatarTmp = Avatar {
-                id: key,
-                creator: player,
+                assistantId: assistantID,
                 name:nameP,
                 alias: aliasP,
                 descriptionA:descriptionAP,
                 descriptionB:descriptionBP,
-                seedId: seedID
             };
             set!(world, (avatarTmp));
         }
     } 
 }
+

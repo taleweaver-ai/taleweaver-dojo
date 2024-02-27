@@ -4,18 +4,16 @@ use tale_weaver::models::avatar;
 
 #[derive(Model, Copy, Drop, Serde)]
 struct Seed{  
-#[key] id:u32,
+#[key] assistantId: felt252,
 creator: ContractAddress,
-title: felt252,   
-userPromptA: felt252,
-userPromptB: felt252,
+titleA: felt252,
+titleB: felt252,  
+descriptionA: felt252,
+descriptionB: felt252,
 imageA: felt252,
 imageB: felt252,
-introA: felt252,
-introB: felt252,
-assistentId: felt252,
-worldThemeId : WorldThemeID,
-worldModeId : WorldModeID,   
+worldThemeId : felt252,
+worldModeId : felt252,   
 }
 
 #[derive(Serde, Copy, Drop, Introspect)]
